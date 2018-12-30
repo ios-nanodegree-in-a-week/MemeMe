@@ -55,19 +55,19 @@
                                 </items>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </toolbar>
-                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Enter Text Here !" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j7y-9y-khr" userLabel="TopText">
+                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Enter Text Here !" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="j7y-9y-khr" userLabel="TopText">
                                 <rect key="frame" x="30" y="117" width="315" height="30"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                                <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="25"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no"/>
                             </textField>
-                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Enter Text Here Too!" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nSO-gv-jAt" userLabel="BottomText">
-                                <rect key="frame" x="74" y="196" width="227.5" height="32"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Enter Text Here Too!" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="nSO-gv-jAt" userLabel="BottomText">
+                                <rect key="frame" x="74" y="490" width="227.5" height="32"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                                <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -77,14 +77,16 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nSO-gv-jAt" secondAttribute="trailing" constant="73.5" id="HeP-Vl-Ipl"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="2EV-0a-71v" secondAttribute="bottom" constant="20" id="Izh-J5-XcJ"/>
                             <constraint firstItem="3ce-cc-r30" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Myb-sC-OxN"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="nSO-gv-jAt" secondAttribute="bottom" constant="439" id="PEC-US-Mt8"/>
+                            <constraint firstItem="nSO-gv-jAt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="74" id="She-qT-dg4"/>
                             <constraint firstItem="3ce-cc-r30" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="XA7-xd-iFs"/>
                             <constraint firstItem="3ce-cc-r30" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="XJ8-id-WbE"/>
-                            <constraint firstItem="nSO-gv-jAt" firstAttribute="top" secondItem="j7y-9y-khr" secondAttribute="bottom" constant="49" id="XJB-5A-rCu"/>
                             <constraint firstItem="nSO-gv-jAt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="74" id="YJS-63-CkE"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2EV-0a-71v" secondAttribute="trailing" constant="10" id="cZe-gl-lIg"/>
                             <constraint firstItem="j7y-9y-khr" firstAttribute="top" secondItem="3ce-cc-r30" secondAttribute="bottom" constant="53" id="cbi-ym-a3B"/>
+                            <constraint firstItem="nSO-gv-jAt" firstAttribute="top" secondItem="j7y-9y-khr" secondAttribute="bottom" constant="343" id="f8t-gn-qU4"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="nSO-gv-jAt" secondAttribute="bottom" constant="145" id="fgE-bO-r3h"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="j7y-9y-khr" secondAttribute="trailing" constant="30" id="h4e-VP-nc5"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nSO-gv-jAt" secondAttribute="trailing" constant="73.5" id="u4m-X3-yyo"/>
                             <constraint firstItem="j7y-9y-khr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="yDF-tZ-jqb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
