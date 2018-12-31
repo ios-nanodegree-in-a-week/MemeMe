@@ -54,6 +54,15 @@
                                     </barButtonItem>
                                     <barButtonItem tag="3" largeContentSizeImage="Save" systemItem="compose" id="fq7-fx-qUo">
                                         <color key="tintColor" red="0.0078431372550000003" green="0.70196078429999997" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="saveMeme:" destination="BYZ-38-t0r" id="t62-pd-Zz3"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem tag="4" systemItem="trash" id="0pc-XP-Coe">
+                                        <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <connections>
+                                            <action selector="deleteMeme:" destination="BYZ-38-t0r" id="7ZO-O3-xFw"/>
+                                        </connections>
                                     </barButtonItem>
                                 </items>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -97,7 +106,9 @@
                     <connections>
                         <outlet property="bottomText" destination="nSO-gv-jAt" id="1Aq-p9-EN4"/>
                         <outlet property="cameraButton" destination="gBX-WT-bKn" id="Yyl-gd-OxT"/>
+                        <outlet property="deleteButton" destination="0pc-XP-Coe" id="QX0-kl-wfH"/>
                         <outlet property="imagePickerView" destination="2EV-0a-71v" id="Dhb-oh-EKe"/>
+                        <outlet property="saveButton" destination="fq7-fx-qUo" id="aiW-UH-JUt"/>
                         <outlet property="shareButton" destination="Ktp-PY-tMe" id="qTx-gW-RtO"/>
                         <outlet property="topText" destination="j7y-9y-khr" id="nMJ-ZC-0NL"/>
                     </connections>

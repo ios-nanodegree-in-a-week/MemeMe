@@ -11,6 +11,8 @@ import Foundation
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
+    @IBOutlet weak var deleteButton: UIBarButtonItem!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var imagePickerView: UIImageView!
     @IBOutlet weak var shareButton: UIBarButtonItem!
@@ -25,13 +27,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        topText.isHidden = true
-        bottomText.isHidden = true
-        
+        resetToFirstLaunchState()
         topText.defaultTextAttributes = memeTextAttributes
         bottomText.defaultTextAttributes = memeTextAttributes
-        
-        shareButton.isEnabled = false
         
         self.topText.delegate = self
         self.bottomText.delegate = self
@@ -51,6 +49,59 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         print("This is share image action")
     }
     
+    @IBAction func saveMeme(_ sender: UIBarButtonItem) {
+        // Create the meme
+        _ = Meme(topText: topText.text!, bottomText: bottomText.text!, originalImage: imagePickerView.image!, memedImage: generateMemedImage())
+        
+        guard let selectedImage = imagePickerView.image else {
+            print("Image not found!")
+            return
+        }
+        UIImageWriteToSavedPhotosAlbum(selectedImage, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
+    }
+    
+    //MARK: - Add image to Library
+    @objc func image(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
+        if let error = error {
+            // we got back an error!
+            showAlertWith(title: "Save error", message: error.localizedDescription)
+        } else {
+            showAlertWith(title: "Saved!", message: "Your image has been saved to your photos.")
+        }
+    }
+    
+    @IBAction func deleteMeme(_ sender: UIBarButtonItem) {
+        resetToFirstLaunchState()
+    }
+    
+    func resetToFirstLaunchState() {
+        imagePickerView.image = nil
+        topText.isHidden = true
+        bottomText.isHidden = true
+        shareButton.isEnabled = false
+        saveButton.isEnabled = false
+        deleteButton.isEnabled = false
+        
+    }
+    
+    func showAlertWith(title: String, message: String){
+        let ac = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .default))
+        present(ac, animated: true)
+    }
+    
+    func generateMemedImage() -> UIImage {
+        
+        // Render view to an image
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
+        let memedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        
+        return memedImage
+    }
+    
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[.originalImage] as? UIImage {
             imagePickerView.image = image
@@ -60,9 +111,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        imagePickerView.image = nil
-        topText.isHidden = true
-        bottomText.isHidden = true
+        resetToFirstLaunchState()
         dismiss(animated: true, completion: nil)
     }
     
@@ -77,15 +126,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func readyToAddText() {
         topText.isHidden = false
         bottomText.isHidden = false
-        
         topText.isUserInteractionEnabled = true
         bottomText.isUserInteractionEnabled = true
-        
         topText.text = ""
         bottomText.text = ""
-        
         topText.backgroundColor = UIColor.lightText
         bottomText.backgroundColor = UIColor.lightText
+        deleteButton.isEnabled = true
+        shareButton.isEnabled = true
+        saveButton.isEnabled = true
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -98,7 +147,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        shareButton.isEnabled = true
         
         if ((textField.text! as NSString).length == 0) {
             textField.backgroundColor = UIColor.lightText
@@ -117,12 +165,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         textField.backgroundColor = UIColor.clear
         textField.textAlignment = NSTextAlignment.center
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        if ((textField.text! as NSString).length == 0) {
-            textField.backgroundColor = UIColor.lightText
-        }
     }
     
     @objc func keyboardWillShow(_ notification: Notification) {
