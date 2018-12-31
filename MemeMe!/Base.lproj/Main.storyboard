@@ -46,6 +46,7 @@
                                             <action selector="PickImageAction:" destination="BYZ-38-t0r" id="2jK-yX-fs9"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="8yU-vY-xXQ"/>
                                     <barButtonItem tag="2" largeContentSizeImage="Share" systemItem="action" id="Ktp-PY-tMe" userLabel="Share">
                                         <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
@@ -58,7 +59,8 @@
                                             <action selector="saveMeme:" destination="BYZ-38-t0r" id="t62-pd-Zz3"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem tag="4" systemItem="trash" id="0pc-XP-Coe">
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="QqE-K9-ESj"/>
+                                    <barButtonItem tag="4" largeContentSizeImage="Delete" systemItem="trash" id="0pc-XP-Coe">
                                         <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <connections>
                                             <action selector="deleteMeme:" destination="BYZ-38-t0r" id="7ZO-O3-xFw"/>
@@ -122,6 +124,7 @@
     <resources>
         <image name="Album" width="16" height="16"/>
         <image name="Camera" width="16" height="16"/>
+        <image name="Delete" width="16" height="16"/>
         <image name="Save" width="16" height="16"/>
         <image name="Share" width="16" height="16"/>
     </resources>

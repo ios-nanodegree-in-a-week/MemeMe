@@ -48,6 +48,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBAction func shareImageAction(_ sender: UIBarButtonItem) {
         print("This is share image action")
+        let memeImage: UIImage = generateMemedImage()
+        
+        let shareActivity = UIActivityViewController(activityItems: [memeImage], applicationActivities: nil)
+        present(shareActivity, animated: true)
     }
     
     @IBAction func saveMeme(_ sender: UIBarButtonItem) {
