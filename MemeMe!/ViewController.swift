@@ -11,6 +11,7 @@ import Foundation
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
+    @IBOutlet weak var toolbar: UIToolbar!
     @IBOutlet weak var deleteButton: UIBarButtonItem!
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
@@ -51,13 +52,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBAction func saveMeme(_ sender: UIBarButtonItem) {
         // Create the meme
-        _ = Meme(topText: topText.text!, bottomText: bottomText.text!, originalImage: imagePickerView.image!, memedImage: generateMemedImage())
         
-        guard let selectedImage = imagePickerView.image else {
-            print("Image not found!")
-            return
-        }
-        UIImageWriteToSavedPhotosAlbum(selectedImage, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
+        UIImageWriteToSavedPhotosAlbum(generateMemedImage(), self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
     }
     
     //MARK: - Add image to Library
@@ -92,11 +88,18 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func generateMemedImage() -> UIImage {
         
+        //Hide toolbar before capturing the view with meme
+        toolbar.isHidden = true
+        imagePickerView.contentMode = .scaleAspectFill
+        
         // Render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
         view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
         let memedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
+        
+        //Show toolbar after capturing the view with meme
+        toolbar.isHidden = false
         
         return memedImage
     }

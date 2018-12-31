@@ -20,7 +20,7 @@
                         <subviews>
                             <imageView autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2EV-0a-71v">
                                 <rect key="frame" x="10" y="84" width="355" height="563"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="355" id="FUJ-hP-8V2"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="563" id="btm-Uc-GFi"/>
@@ -110,6 +110,7 @@
                         <outlet property="imagePickerView" destination="2EV-0a-71v" id="Dhb-oh-EKe"/>
                         <outlet property="saveButton" destination="fq7-fx-qUo" id="aiW-UH-JUt"/>
                         <outlet property="shareButton" destination="Ktp-PY-tMe" id="qTx-gW-RtO"/>
+                        <outlet property="toolbar" destination="3ce-cc-r30" id="Qck-7H-DLa"/>
                         <outlet property="topText" destination="j7y-9y-khr" id="nMJ-ZC-0NL"/>
                     </connections>
                 </viewController>
