@@ -16,7 +16,7 @@
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
-	<key>NSPhotoLibraryUsageDescription</key>
+	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>Grant access to your photo album to allow using photos for MemeMe!</string>
 	<key>NSCameraUsageDescription</key>
 	<string>Grant access to your camera to allow capture new photos for MemeMe!</string>

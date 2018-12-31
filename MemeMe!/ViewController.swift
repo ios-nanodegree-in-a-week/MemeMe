@@ -60,6 +60,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        imagePickerView.image = nil
+        topText.isHidden = true
+        bottomText.isHidden = true
         dismiss(animated: true, completion: nil)
     }
     

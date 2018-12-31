@@ -34,23 +34,26 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="375" id="gZZ-O6-8Gl"/>
                                 </constraints>
                                 <items>
-                                    <barButtonItem systemItem="camera" id="gBX-WT-bKn" userLabel="Camera">
+                                    <barButtonItem largeContentSizeImage="Camera" systemItem="camera" id="gBX-WT-bKn" userLabel="Camera">
                                         <color key="tintColor" red="0.58081901069999997" green="0.088427625600000004" blue="0.31863921880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <action selector="PickImageAction:" destination="BYZ-38-t0r" id="AyO-gd-m9m"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem tag="1" systemItem="organize" id="tun-qb-7fL" userLabel="Photo Album">
+                                    <barButtonItem tag="1" largeContentSizeImage="Album" systemItem="organize" id="tun-qb-7fL" userLabel="Photo Album">
                                         <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <action selector="PickImageAction:" destination="BYZ-38-t0r" id="2jK-yX-fs9"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem tag="3" systemItem="action" id="Ktp-PY-tMe" userLabel="Share">
+                                    <barButtonItem tag="2" largeContentSizeImage="Share" systemItem="action" id="Ktp-PY-tMe" userLabel="Share">
                                         <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <action selector="shareImageAction:" destination="BYZ-38-t0r" id="dXE-tk-enK"/>
                                         </connections>
+                                    </barButtonItem>
+                                    <barButtonItem tag="3" largeContentSizeImage="Save" systemItem="compose" id="fq7-fx-qUo">
+                                        <color key="tintColor" red="0.0078431372550000003" green="0.70196078429999997" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
                                     </barButtonItem>
                                 </items>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -104,4 +107,10 @@
             <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Album" width="16" height="16"/>
+        <image name="Camera" width="16" height="16"/>
+        <image name="Save" width="16" height="16"/>
+        <image name="Share" width="16" height="16"/>
+    </resources>
 </document>
